@@ -1,0 +1,333 @@
+/*
+Theme Name: NVCernuda
+Theme URI: https://nvcernuda.com
+Description: WP theme for https://nvcernuda.com
+Version: 1.0
+Author: Mark Duwe
+Author URI: http://prydonian.digital
+Tags:
+License: Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License
+License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
+Text Domain:
+*/
+body {
+	padding-top: 250px;
+	letter-spacing: 0.025rem;
+	background: #fff;
+}
+a {
+	transition: 0.25s all ease-in-out;
+}
+header {
+	min-height: 250px;
+	text-align: center;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	background: rgba(255,255,255,0.95);
+	transition: 0.5s all ease-in-out;
+	z-index: 1001;
+}
+header h1 {
+	font-size: 3rem;
+	font-weight: 500;
+	line-height: 200px;
+	transition: 0.25s all ease-in-out;
+	margin: 0 auto;
+	letter-spacing: 0.125rem;
+}
+header h1 a:hover {
+	text-decoration: none;
+}
+body.closed header {
+	min-height: 100px;
+	transition: 0.5s all ease-in-out
+}
+body.closed header h1 {
+	font-size: 2rem;
+	font-weight: 200;
+	line-height: 50px;
+	transition: 0.25s all ease-in-out
+}
+.hover-underline-menu {
+	background: #8e8d8a;
+	line-height: 50px;
+}
+.wrapper {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	color: #444;
+	margin: 20px auto;
+	max-width: 52rem;
+}
+footer {
+	overflow: hidden;
+}
+footer .wrapper {
+	max-width: 1200px;
+}
+.box, .copyright, #respond, .comments-title {
+	border-radius: 5px;
+	padding: 1rem;
+	grid-column: auto / span 12;
+}
+.three-quarters {
+	border-radius: 5px;
+	padding: 1rem;
+	grid-column: auto / span 8;
+}
+.one-quarter {
+	border-radius: 5px;
+	padding: 1rem;
+	grid-column: auto / span 4;
+}
+.portfolio {
+	border-radius: 5px;
+	padding: 1rem;
+	grid-column: auto / span 4;
+}
+.portfolio .imageHolder {
+	position: relative;
+}
+.portfolio .imageHolder h4 {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	z-index: -1;
+	transition: all 0.25s ease-in-out;
+}
+.portfolio .imageHolder a:hover h4 {
+	z-index: 10;
+}
+.portfolio .imageHolder a {
+	display: block;
+}
+.portfolio .imageHolder a img {
+	opacity: 1;
+	transition: all 0.25s ease-in-out;
+}
+.portfolio .imageHolder a:hover img {
+	opacity: 0.25;
+}
+.search .portfolio {
+	grid-template-columns: repeat(6, 1fr);
+	grid-gap: 0;
+	padding: 0;
+}
+.box.grid, .the_author {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-gap: 0;
+	padding: 0;
+}
+.box.grid {
+	border-bottom: 1px solid #efefef;
+}
+.box.grid .box.thumb, .search .portfolio .box.thumb {
+	grid-column: 1 / 3;
+}
+.box.grid .box.content, .search .portfolio .box.content {
+	grid-column: span 4 / 7;
+}
+.single .box p {
+	text-align: justify;
+}
+.depth-2 {
+	border-radius: 5px 5px 0 0;
+}
+.comment {
+	border: 1px solid #efefef;
+	border-radius: 5px;
+	margin: 0 0 1rem 0;
+}
+.comment .comment {
+	border: none;
+	margin: 0;
+}
+.reply {
+	padding: 0 1rem 1rem 1rem;
+}
+article footer {
+	background: #efefef !important;
+	padding: 1rem;
+}
+.comment-content {
+	padding: 1rem;
+}
+.the_author {
+	margin-top: 1rem;
+	padding: 1rem 1rem 0.5rem 1rem;
+	border: 1px solid rgba(221,221,221);
+	border-radius: 5px;
+}
+.the_author_name {
+	grid-column: span 7 / 7;
+}
+.the_author_name h4 {
+	margin-bottom: 0.5rem;
+}
+.avatar_img {
+	grid-column: 2 / 1;
+	padding: 0.5rem;
+}
+.avatar {
+	border-radius: 50%;
+}
+.author_desc {
+	grid-column: span 5 / 7;
+	padding: 0.5rem;
+}
+.screen-reader-text {
+	display: none;
+}
+.page-numbers {
+	padding: 0.25rem 0.75rem;
+	border-radius: 5px;
+}
+.jp-relatedposts-items {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-gap: 0.5rem;
+	padding: 0;
+}
+.jp-relatedposts-post {
+	float: none !important;
+	width: auto !important;
+	padding: 0.5rem;
+	border: 1px solid rgba(221,221,221);
+	border-radius: 5px;
+}
+
+@media screen and (max-width: 730px) {
+	.box.grid {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		grid-gap: 0;
+		padding: 0;
+	}
+	.box.grid .box.thumb {
+		grid-column: auto / span 12;
+		text-align: center;
+	}
+	.box.grid .box.content {
+		grid-column: auto / span 12;
+	}
+	.the_author {
+		grid-gap: 2vw;
+	}
+	.jp-relatedposts-post {
+		grid-column: auto / span 12 !important;
+	}
+	.portfolio, .box.three-quarters, .box.one-quarter {
+		grid-column: auto / span 12;
+	}
+}
+.footer {
+	border-radius: 5px;
+	padding: 1rem;
+	grid-column: auto / span 4;
+}
+@media screen and (max-width: 730px) {
+	.footer {
+		border-radius: 5px;
+		padding: 1rem;
+		grid-column: auto / span 12;
+	}
+}
+nav ul, nav ul li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: inline-block;
+}
+nav ul li a {
+	display: block;
+	line-height: 50px;
+	padding: 0 1rem;
+	color: #fff;
+}
+.hover-underline-menu ul li a:hover {
+	text-decoration: none;
+	color: #fff;
+}
+.hover-underline-menu .menu .underline-from-center {
+  position: relative;
+}
+
+.hover-underline-menu .menu .underline-from-center::after {
+  content: "";
+  position: absolute;
+  top: calc(100% - 0.125rem);
+  border-bottom: 0.125rem solid #fefefe;
+  left: 50%;
+  right: 50%;
+  transition: all 0.5s ease;
+}
+.hover-underline-menu .menu .current-menu-item .underline-from-center::after {
+  content: "";
+  position: absolute;
+  top: calc(100% - 0.125rem);
+  border-bottom: 0.125rem solid #fefefe;
+  left: 0;
+  right: 0;
+  transition: all 0.5s ease;
+}
+.hover-underline-menu .menu .underline-from-center:hover::after {
+  left: 0;
+  right: 0;
+  transition: all 0.5s ease;
+}
+.pagination {
+	text-align: center;
+}
+.pagination li a {
+	color: #111;
+	padding: 0.5rem 0.75rem;
+	line-height: 1;
+	border-radius: 5px;
+}
+.pagination li a:hover {
+	color: #111;
+	padding: 0.5rem 0.75rem;
+	line-height: 1;
+	text-decoration: none;
+	background: #ccc;
+}
+.alignleft {
+	float: left;
+	margin: 0 0.5rem 0.5rem 0;
+}
+.alignright {
+	float: right;
+	margin: 0 0 0.5rem 0,5rem;
+}
+.aligncenter {
+	display: block;
+	margin: 0 auto 0.5rem auto;
+}
+.alignnone {
+	float: none;
+}
+ul.sidebar, ul.sidebar li {
+	list-style: none;
+	margin: 0 0 1rem 0;
+	padding: 0;
+}
+ul.sidebar ul, ul.sidebar ol {
+	margin: 0;
+	padding: 0;
+}
+.post-meta {
+	font-size: 0.8rem;
+	color: #777;
+}
+.meta-text {
+	display: inline;
+	padding: 0.25rem 0.5rem 0.25rem 0;
+}
+.meta-icon {
+	padding: 0 0.25rem 0 0;
+}
