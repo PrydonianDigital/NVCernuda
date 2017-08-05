@@ -8,6 +8,11 @@
 
 <?php while (have_posts()) : the_post(); ?>
 
+<?php
+	$type = get_post_type();
+	switch ($type) {
+		case "post":
+?>
 <div class="box grid">
 	<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "thumbnail" ); ?>
 	<?php $image_width = $image_data[1]; ?>
@@ -58,6 +63,98 @@
 		<a href="<?php the_permalink(); ?>" class="button">Read...</a>
 	</div>
 </div>
+<?php
+			break;
+		case "portfolio":
+?>
+	<div class="portfolio">
+	<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "CreativeWork",
+		"mainEntityOfPage": "<?php the_permalink(); ?>",
+		"headline": "<?php the_title(); ?>",
+		"alternativeHeadline": "<?php the_title(); ?>",
+		"image": {
+			"@type": "ImageObject",
+			"height": "<?php echo $image_height; ?>",
+			"width": "<?php echo $image_width; ?>",
+			"url": "<?php the_post_thumbnail_url(); ?>"
+		},
+		"keywords": "",
+		"url": "<?php the_permalink(); ?>",
+		"datePublished": "<?php echo get_the_date(); ?>",
+		"dateCreated": "<?php echo get_the_date(); ?>",
+		"dateModified": "<?php the_modified_date(); ?>",
+		"description": "<?php the_excerpt(); ?>",
+		"publisher": {
+		    "@type": "Organization",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "<?php echo get_site_icon_url(); ?>"
+			},
+		    "name": "<?php bloginfo('name'); ?>"
+		},
+		"author": {
+			"@type": "Person",
+			"name": "<?php the_author_meta('display_name');?>"
+		}
+	}
+	</script>
+		<div class="imageHolder">
+			<a href="<?php the_permalink(); ?>" class="post-thumbnail">
+				<?php the_post_thumbnail('portfoliothumb'); ?>
+				<h4 class="post-title"><?php the_title(); ?></h4>
+			</a>
+		</div>
+	</div>
+<?php
+			break;
+		case "page":
+?>
+	<div class="box">
+		<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "WebSite",
+			"mainEntityOfPage": "<?php the_permalink(); ?>",
+			"headline": "<?php the_title(); ?>",
+			"alternativeHeadline": "<?php the_title(); ?>",
+			"image": {
+				"@type": "ImageObject",
+				"height": "<?php echo $image_height; ?>",
+				"width": "<?php echo $image_width; ?>",
+				"url": "<?php the_post_thumbnail_url(); ?>"
+			},
+			"url": "<?php the_permalink(); ?>",
+			"datePublished": "<?php echo get_the_date(); ?>",
+			"dateCreated": "<?php echo get_the_date(); ?>",
+			"dateModified": "<?php the_modified_date(); ?>",
+			"description": "<?php the_excerpt(); ?>",
+			"publisher": {
+			    "@type": "Organization",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "<?php echo get_site_icon_url(); ?>"
+				},
+			    "name": "<?php bloginfo('name'); ?>"
+			},
+			"author": {
+				"@type": "Person",
+				"name": "<?php the_author_meta('display_name');?>"
+			}
+		}
+		</script>
+		<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+		<?php the_excerpt(); ?>
+		<a href="<?php the_permalink(); ?>" class="button">Visit...</a>
+	</div>
+<?php
+			break;
+	}
+?>
+
+
 
 <?php endwhile; ?>
 <div class="box">

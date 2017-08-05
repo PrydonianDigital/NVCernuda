@@ -82,40 +82,16 @@ footer .wrapper {
 	padding: 1rem;
 	grid-column: auto / span 4;
 }
-.portfolio {
+.portfolio, .post-type-archive-portfolio .portfolio {
 	border-radius: 5px;
 	padding: 1rem;
-	grid-column: auto / span 4;
+	grid-column: auto / span 12;
 }
-.portfolio .imageHolder {
-	position: relative;
-}
-.portfolio .imageHolder h4 {
-	position: absolute;
-	width: 100%;
-	top: 50%;
-	transform: translateY(-50%);
-	text-align: center;
-	z-index: -1;
-	transition: all 0.25s ease-in-out;
-}
-.portfolio .imageHolder a:hover h4 {
-	z-index: 10;
-}
-.portfolio .imageHolder a {
-	display: block;
-}
-.portfolio .imageHolder a img {
-	opacity: 1;
-	transition: all 0.25s ease-in-out;
-}
-.portfolio .imageHolder a:hover img {
-	opacity: 0.25;
-}
-.search .portfolio {
-	grid-template-columns: repeat(6, 1fr);
-	grid-gap: 0;
-	padding: 0;
+.
+.search .portfolio, .post-type-archive-portfolio .portfolio {
+	padding: 1rem;
+	grid-column: auto / span 12;
+	border-bottom: 1px solid #efefef;
 }
 .box.grid, .the_author {
 	display: grid;
