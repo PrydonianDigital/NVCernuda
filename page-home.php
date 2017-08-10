@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<div class="wrapper-wide">
+
+	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 	<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "thumbnail" ); ?>
 	<?php $image_width = $image_data[1]; ?>
@@ -38,19 +40,20 @@
 	}
 	</script>
 
-<div class="box three-quarters">
-	<?php the_content(); ?>
+<div class="box half img" style="background: url(<?php echo get_the_post_thumbnail_url() ?>)"></div>
+
 </div>
 
-<div class="box one-quarter">
-	<ul class="sidebar menu vertical text-left">
-		<?php if ( ! dynamic_sidebar('home') ) : ?>
-			<li>{static sidebar item 1}</li>
-		<?php endif; ?>
-	</ul></div>
+<div class="wrapper">
+
+	<div class="box">
+		<?php the_content(); ?>
+	</div>
 
 <?php endwhile; ?>
 
 <?php endif; ?>
+
+</div>
 
 <?php get_footer(); ?>

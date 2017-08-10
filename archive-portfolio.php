@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<div class="wrapper" role="main">
+
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "thumbnail" ); ?>
 	<?php $image_width = $image_data[1]; ?>
@@ -38,13 +40,26 @@
 	}
 	</script>
 	<div <?php post_class('box'); ?>>
-		<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-		<?php the_excerpt(); ?>
-		<a href="<?php the_permalink(); ?>" class="button">View...</a>
+		<div class="card">
+			<div class="card-image">
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfoliothumb'); ?></a>
+			</div>
+			<div class="card-title">
+				<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+			</div>
+			<div class="card-content">
+				<?php the_excerpt(); ?>
+			</div>
+			<div class="card-actions">
+				<a href="<?php the_permalink(); ?>" class="link-primary">View</a>
+			</div>
+		</div>
 	</div>
 
 	<?php endwhile; ?>
 
 	<?php endif; ?>
+
+</div>
 
 <?php get_footer(); ?>

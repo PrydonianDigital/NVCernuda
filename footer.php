@@ -1,4 +1,3 @@
-</div>
 
 <footer role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
 	<div class="wrapper">

@@ -55,7 +55,7 @@
 				<span class="meta-icon"><?php echo get_avatar( get_the_author_meta( 'ID' ), 12 ); ?></span><a class="meta-text" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author_meta('display_name');?></a>| <span class="meta-icon fa fa-clock-o" aria-hidden="true"></span><span class="meta-text"><?php the_date('dS F Y'); ?></span>| <span class="meta-icon fa fa-cloud" aria-hidden="true"></span><span class="meta-text"><?php the_category( ', ' ); ?></span>| <span class="meta"><?php echo get_the_tag_list('<span class="meta-icon fa fa-tags" aria-hidden="true"></span><span class="meta-text"> ',', ','</span>'); ?></span>| <span class="meta-icon fa fa-comments-o"></span><span class="meta-text"> <a href="<?php the_permalink(); ?>/#comments"><?php comments_number( '0', '1', '%' ); ?></a></span>
 			</div>
 			<?php the_excerpt(); ?>
-			<a href="<?php the_permalink(); ?>" class="button">Read...</a>
+			<a href="<?php the_permalink(); ?>" class="button">Read</a>
 		</div>
 	</div>
 

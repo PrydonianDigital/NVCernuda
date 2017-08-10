@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<div class="wrapper" role="main">
+
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 	<?php $image_data = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "thumbnail" ); ?>
@@ -41,19 +43,20 @@
 	</script>
 
 <div class="box">
+	<?php the_post_thumbnail(); ?>
 	<h2 class="post-title"><?php the_title(); ?></h2>
 	<div class="post-meta">
 		<span class="meta-icon"><?php echo get_avatar( get_the_author_meta( 'ID' ), 12 ); ?></span><a class="meta-text" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author_meta('display_name');?></a>| <span class="meta-icon fa fa-clock-o" aria-hidden="true"></span><span class="meta-text"><?php the_date('dS F Y'); ?></span>| <span class="meta-icon fa fa-cloud" aria-hidden="true"></span><span class="meta-text"><?php the_category( ', ' ); ?></span>| <span class="meta"><?php echo get_the_tag_list('<span class="meta-icon fa fa-tags" aria-hidden="true"></span><span class="meta-text"> ',', ','</span>'); ?></span>| <span class="meta-icon fa fa-comments-o"></span><span class="meta-text"> <a href="#comments"><?php comments_number( '0', '1', '%' ); ?></a></span>
 	</div>
 	<?php the_content(); ?>
-	<div class="the_author">
-		<div class="the_author_name">
-			<h4>About <?php the_author_meta( 'display_name' ); ?></h4>
-		</div>
-		<div class="avatar_img">
+	<div class="media">
+		<div class="media-image">
 			<?php echo get_avatar( get_the_author_meta( 'ID' ), 96 ); ?>
 		</div>
-		<div class="author_desc">
+		<div class="media-title">
+			<h3>About <?php the_author_meta( 'display_name' ); ?></h3>
+		</div>
+		<div class="media-content">
 			<?php the_author_meta( 'description' ); ?>
 		</div>
 	</div>
@@ -64,5 +67,7 @@
 <?php endwhile; ?>
 
 <?php endif; ?>
+
+</div>
 
 <?php get_footer(); ?>

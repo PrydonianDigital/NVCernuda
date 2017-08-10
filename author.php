@@ -1,8 +1,10 @@
 <?php get_header(); ?>
+<div class="wrapper" role="main">
 
 	<div class="box">
 		<h2><?php the_author_meta('display_name');?></h2>
 	</div>
+
 </div>
 
 <div class="wrapper">
@@ -62,5 +64,7 @@
 	<?php endwhile; ?>
 
 	<?php endif; ?>
+
+</div>
 
 <?php get_footer(); ?>

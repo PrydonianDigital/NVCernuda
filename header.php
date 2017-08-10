@@ -30,5 +30,3 @@ footer p, footer a, footer h5, footer li { color: <?php echo get_theme_mod( 'nvc
 		<?php wp_nav_menu(array('theme_location' => 'header', 'menu_class' => 'menu align-center sticky-shrinknav-menu')); ?>
 	</nav>
 </header>
-
-<div class="wrapper" role="main">
